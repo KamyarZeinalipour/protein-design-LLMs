@@ -57,8 +57,8 @@ This repository provides a script that demonstrates how LLMs can generate biolog
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/yourusername/your-repository.git
-   cd your-repository
+   git clone https://github.com/KamyarZeinalipour/protein-design-LLMs.git
+   cd protein-design-LLMs.
    ```
 
 2. **Install Dependencies**
