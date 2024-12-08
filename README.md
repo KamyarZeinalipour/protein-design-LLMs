@@ -35,7 +35,6 @@ This repository provides a script that demonstrates how LLMs can generate biolog
 
 - **Multiple Model Support**: Generate protein sequences using different fine-tuned LLMs.
 - **Custom Tokenizers**: Utilizes tokenizers retrained specifically for protein sequences.
-- **Dynamic BOS and EOS Tokens**: Automatically handles model-specific Beginning-of-Sequence (BOS) and End-of-Sequence (EOS) tokens.
 - **Configurable Generation Parameters**: Adjust temperature, sequence length, and number of generations.
 - **Result Output**: Saves accepted protein sequences to a CSV file for further analysis.
 
@@ -122,13 +121,13 @@ The script supports the following models, each with its own tokenizer and specia
 
 ## Usage
 
-The script `generate_proteins.py` generates protein sequences using specified models and parameters. It can be run from the command line with customizable arguments.
+The script `main.py` generates protein sequences using specified models and parameters. It can be run from the command line with customizable arguments.
 
 ### Command-Line Arguments
 
 - `--model_name`: **(Required)** Name of the model to use.
   - Options: `P-gemma-7B`, `P-Mistral`, `P-Llama2-7B`, `P-Llama3-8B`.
-- `--num_generations`: **(Required)** Number of protein sequences to generate.
+- `--num_generations`: **(Required)** Number of acceptble protein sequences to generate.
 - `--temperature`: Sampling temperature for text generation. Default is `0.8`.
 - `--min_length`: Minimum length of valid protein sequences. Default is `25`.
 - `--max_length`: Maximum length of valid protein sequences. Default is `150`.
@@ -166,10 +165,10 @@ The script `generate_proteins.py` generates protein sequences using specified mo
 Example output in the console:
 
 ```
-Accepted: MVLSPADKTNVKAAWGKVGAHAGEYGAEALERMFLSF...
-Accepted: GQTFYVDGAQLFAVRMKGIPKLVQPQAKEMGLMR...
+Generated Protein: MVLSPADKTNVKAAWGKVGAHAGEYGAEALERMFLSF...
+Generated Protein: GQTFYVDGAQLFAVRMKGIPKLVQPQAKEMGLMR...
 ...
-Accepted text saved to Accepted_Texts.csv
+Accepted text saved generated_Proteins_{model_name}.csv
 ```
 
 ---
