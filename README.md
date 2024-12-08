@@ -71,10 +71,14 @@ This repository provides a script that demonstrates how LLMs can generate biolog
    ```
 
    Install required packages:
+  
+   Install the required Python packages from the `requirements.txt` file using `pip`:
+  
+    ```bash
+    pip install -r requirements.txt
+    ```
 
-   ```bash
-   pip install torch transformers pandas argparse
-   ```
+
 
 3. **Verify CUDA Installation (Optional)**
 
