@@ -69,8 +69,6 @@ This repository provides a script that demonstrates how LLMs can generate biolog
    python -m venv venv
    source venv/bin/activate  # On Windows, use venv\Scripts\activate
    ```
-
-   Install required packages:
   
    Install the required Python packages from the `requirements.txt` file using `pip`:
   
