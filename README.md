@@ -199,7 +199,7 @@ The code in this repository is part of the research conducted in the aforementio
 
 #### Access
 
-The paper is available on [arXiv](https://arxiv.org/abs/your-paper-id) and [OpenReview](https://openreview.net/forum?id=your-paper-id). The models and datasets are hosted on Hugging Face and GitHub.
+The paper is available on [arXiv](https://arxiv.org/abs/2408.06396) and [aclanthology](https://aclanthology.org/2024.langmol-1.5/). The models and datasets are hosted on Hugging Face and GitHub.
 
 ---
 
