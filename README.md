@@ -99,7 +99,7 @@ The script supports the following models, each with its own tokenizer and specia
    - **BOS Token**: `<bos>`
    - **EOS Token**: `<eos>`
 
-2. **P-Mistral**
+2. **P-Mistral-7B**
    - **Model Repository**: `Kamyar-zeinalipour/P-Mistral-7B`
    - **Tokenizer Repository**: `Kamyar-zeinalipour/protein-tokenizer-mistral`
    - **BOS Token**: `<s>`
@@ -126,7 +126,7 @@ The script `main.py` generates protein sequences using specified models and para
 ### Command-Line Arguments
 
 - `--model_name`: **(Required)** Name of the model to use.
-  - Options: `P-gemma-7B`, `P-Mistral`, `P-Llama2-7B`, `P-Llama3-8B`.
+  - Options: `P-gemma-7B`, `P-Mistral-7b`, `P-Llama2-7B`, `P-Llama3-8B`.
 - `--num_generations`: **(Required)** Number of acceptble protein sequences to generate.
 - `--temperature`: Sampling temperature for text generation. Default is `0.8`.
 - `--min_length`: Minimum length of valid protein sequences. Default is `25`.
