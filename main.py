@@ -60,7 +60,7 @@ if __name__ == "__main__":
         },
         'P-Mistral-7B': {
             'model_repo': 'Kamyar-zeinalipour/P-Mistral-7B',
-            'tokenizer_repo': 'Kamyar-zeinalipour/protein-tokenizer-mistral',
+            'tokenizer_repo': 'Kamyar-zeinalipour/Mistral-tokenizer-prot',
             'bos_token': '<s>',
             'eos_token': '</s>'
         },
