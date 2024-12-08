@@ -103,7 +103,7 @@ The script supports the following models, each with its own tokenizer and specia
 
 2. **P-Mistral-7B**
    - **Model Repository**: `Kamyar-zeinalipour/P-Mistral-7B`
-   - **Tokenizer Repository**: `Kamyar-zeinalipour/protein-tokenizer-mistral`
+   - **Tokenizer Repository**: `Kamyar-zeinalipour/Mistral-tokenizer-prot`
    - **BOS Token**: `<s>`
    - **EOS Token**: `</s>`
 
