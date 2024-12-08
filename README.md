@@ -211,9 +211,9 @@ This project is licensed under the **MIT License**. See the [LICENSE](LICENSE) f
 
 ## Acknowledgements
 
-- **Authors**: Your Name, Collaborators' Names
-- **Affiliation**: Your Institution or Organization
-- **Contact**: your.email@example.com
+- **Authors**: Kamyar Zeinalipour, Neda Jamshidi, Monica Bianchini, Marco Maggini and Marco Gori
+- **Affiliation**: University of Siena
+- **Contact**: kamyar.zeinalipour2@unisi.it
 
 ---
 
