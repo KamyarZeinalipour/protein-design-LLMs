@@ -140,19 +140,19 @@ The script `main.py` generates protein sequences using specified models and para
 1. **Generate 10 Sequences with P-Mistral**
 
    ```bash
-   python generate_proteins.py --model_name P-Mistral --num_generations 10
+   python main.py --model_name P-Mistral --num_generations 10
    ```
 
 2. **Generate Sequences with Custom Length and Temperature**
 
    ```bash
-   python generate_proteins.py --model_name P-Llama2-7B --num_generations 20 --temperature 0.7 --min_length 50 --max_length 200 --output_file llama2_proteins.csv
+   python main.py --model_name P-Llama2-7B --num_generations 20 --temperature 0.7 --min_length 50 --max_length 200 --output_file llama2_proteins.csv
    ```
 
 3. **Using P-Llama3-8B Model**
 
    ```bash
-   python generate_proteins.py --model_name P-Llama3-8B --num_generations 15 --output_file llama3_proteins.csv
+   python main.py --model_name P-Llama3-8B --num_generations 15 --output_file llama3_proteins.csv
    ```
 
 ---
