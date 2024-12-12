@@ -9,19 +9,31 @@ def get_code_completion(prompt, temperature, model, tokenizer):
     Generates text based on the input prompt using the specified temperature.
     """
     model.eval()
+
+  
+    inputs = tokenizer(
+        prompt,
+        return_tensors="pt",
+    )
+
+    # Move input tensors to the appropriate device
+    input_ids = inputs.input_ids.cuda()
+    attention_mask = inputs.attention_mask.cuda()
     outputs = model.generate(
-        input_ids=tokenizer(prompt, return_tensors="pt").input_ids.cuda(),
+        input_ids=input_ids,
+        attention_mask = attention_mask,
         max_new_tokens=500,
         temperature=temperature,
         top_k=50,
         top_p=0.95,
         do_sample=True,
         repetition_penalty=1.0,
-        pad_token_id=tokenizer.eos_token_id,
+        eos_token_id=tokenizer.eos_token_id,
+        pad_token_id=tokenizer.pad_token_id,  
     )
     return tokenizer.decode(outputs[0], skip_special_tokens=False)
 
-def generate_and_save_text(num_accepted_texts, temperature, min_length, max_length, output_file, model, tokenizer, bos_token, eos_token):
+def generate_and_save_text(num_accepted_texts, temperature, min_length, max_length, output_file, model, tokenizer, bos_token, eos_token, pad_token):
     """
     Generates and saves text to a CSV file based on the given parameters.
     """
@@ -30,11 +42,12 @@ def generate_and_save_text(num_accepted_texts, temperature, min_length, max_leng
 
     while len(accepted_texts) < num_accepted_texts:
         # Use the model's BOS token as the prompt
-        generated_text = get_code_completion('', temperature, model, tokenizer)
+        generated_text = get_code_completion(bos_token, temperature, model, tokenizer)
+        print(f"Generated Protein before: {generated_text}")
 
-        # Clean up the generated text by removing BOS and EOS tokens
-        generated_text = generated_text.replace(bos_token, '', 1).replace(eos_token, '', 1).strip()
-
+        # Clean up the generated text by removing BOS, EOS, and PAD tokens
+        generated_text = generated_text.replace(bos_token, '', 1).replace(eos_token, '', 1).replace(pad_token, '').strip()
+        print(f"Generated Protein After: {generated_text}")
         # Filter by character length
         if min_length <= len(generated_text) <= max_length:
             accepted_texts.append(generated_text)
@@ -56,25 +69,29 @@ if __name__ == "__main__":
             'model_repo': 'Kamyar-zeinalipour/P-gemma-7B',
             'tokenizer_repo': 'Kamyar-zeinalipour/protein-tokenizer-gemma',
             'bos_token': '<bos>',
-            'eos_token': '<eos>'
+            'eos_token': '<eos>',
+            'pad_token': '<eos>'
         },
         'P-Mistral-7B': {
             'model_repo': 'Kamyar-zeinalipour/P-Mistral-7B',
             'tokenizer_repo': 'Kamyar-zeinalipour/Mistral-tokenizer-prot',
             'bos_token': '<s>',
-            'eos_token': '</s>'
+            'eos_token': '</s>',
+            'pad_token': '</s>'
         },
         'P-Llama2-7B': {
             'model_repo': 'Kamyar-zeinalipour/P-Llama2-7B',
             'tokenizer_repo': 'Kamyar-zeinalipour/protein-tokenizer-llama2',
             'bos_token': '<s>',
-            'eos_token': '</s>'
+            'eos_token': '</s>',
+            'pad_token': '</s>'
         },
         'P-Llama3-8B': {
             'model_repo': 'Kamyar-zeinalipour/P-Llama3-8B',
             'tokenizer_repo': 'Kamyar-zeinalipour/protein-tokenizer-llama3',
             'bos_token': '<|begin_of_text|>',
-            'eos_token': '<|end_of_text|>'
+            'eos_token': '<|end_of_text|>',
+            'pad_token': '<|finetune_right_pad_id|>'
         }
     }
 
@@ -105,11 +122,14 @@ if __name__ == "__main__":
     tokenizer_repo = model_info['tokenizer_repo']
     bos_token = model_info['bos_token']
     eos_token = model_info['eos_token']
+    pad_token = model_info['pad_token']
 
-    # Load tokenizer and set BOS and EOS tokens
+    # Load tokenizer and set BOS, EOS, and PAD tokens
     tokenizer = AutoTokenizer.from_pretrained(tokenizer_repo)
     tokenizer.bos_token = bos_token
     tokenizer.eos_token = eos_token
+    tokenizer.pad_token = pad_token
+
 
     # Load model
     model = AutoModelForCausalLM.from_pretrained(
@@ -119,6 +139,8 @@ if __name__ == "__main__":
         trust_remote_code=True,
         torch_dtype=torch.bfloat16,
     )
+
+
 
     if not hasattr(model, "hf_device_map"):
         model.cuda()
@@ -137,4 +159,5 @@ if __name__ == "__main__":
         tokenizer=tokenizer,
         bos_token=bos_token,
         eos_token=eos_token,
+        pad_token=pad_token, 
     )
