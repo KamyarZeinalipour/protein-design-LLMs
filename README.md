@@ -1,5 +1,33 @@
 # Protein Sequence Generation using Large Language Models
 
+[![Paper](https://img.shields.io/badge/LangMol_2024-paper-b31b1b)](https://aclanthology.org/2024.langmol-1.5/)
+[![Dataset](https://img.shields.io/badge/%F0%9F%A4%97_Dataset-UniRef50--HumanProteins-yellow)](https://huggingface.co/datasets/Kamyar-zeinalipour/UniRef50-HumanProteins)
+[![Models](https://img.shields.io/badge/%F0%9F%A4%97_Collection-Protein_Design-orange)](https://huggingface.co/collections/Kamyar-zeinalipour/design-proteins-using-llms-langmol-2024-6af48a0e6814a362675e4dc6)
+[![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE.txt)
+
+All models, tokenizers and data from the paper are in the
+[Design Proteins Using LLMs collection](https://huggingface.co/collections/Kamyar-zeinalipour/design-proteins-using-llms-langmol-2024-6af48a0e6814a362675e4dc6).
+
+| Model | Base | pLDDT |
+|---|---|---:|
+| [P-Mistral-7B](https://huggingface.co/Kamyar-zeinalipour/P-Mistral-7B) | Mistral-7B | 72.03 |
+| [P-Llama2-7B](https://huggingface.co/Kamyar-zeinalipour/P-Llama2-7B) | Llama-2-7B | 65.39 |
+| [P-Llama3-8B](https://huggingface.co/Kamyar-zeinalipour/P-Llama3-8B) | Llama-3-8B | 62.99 |
+| [P-gemma-7B](https://huggingface.co/Kamyar-zeinalipour/P-gemma-7B) | Gemma-7B | 62.24 |
+
+### Structural evaluation
+
+| Model | pLDDT ↑ | Intra-RMSD ↓ | REU ↓ | TM-Score ↑ | Inter-RMSD ↓ |
+|---|---:|---:|---:|---:|---:|
+| Natural proteins | 67.77 | – | −153.06 | – | 4.40 |
+| Random | 39.71 | 9.88 | −197.22 | 0.41 | 6.81 |
+| **P-Mistral-7B** | **72.03** | **5.42** | −197.40 | **0.68** | 4.70 |
+| **P-Llama2-7B** | 65.39 | 7.02 | −153.31 | 0.63 | 4.76 |
+| **P-Llama3-8B** | 62.99 | 7.38 | −132.50 | 0.65 | **4.30** |
+| **P-gemma-7B** | 62.24 | 5.80 | −141.60 | 0.65 | 5.83 |
+
+---
+
 This repository contains a Python script designed to generate protein sequences using fine-tuned large language models (LLMs). The script leverages models such as Mistral-7B, Llama-2-7B, Llama-3-8B, and Gemma-7B, which have been adapted for protein design tasks. This code is part of the research presented in the paper:
 
 **Design Proteins Using Large Language Models: Enhancements and Comparative Analyses**
