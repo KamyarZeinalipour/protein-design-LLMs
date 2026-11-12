@@ -1,0 +1,41 @@
+cff-version: 1.2.0
+message: "If you use this code or these models, please cite the paper below."
+title: "Design Proteins Using Large Language Models: Enhancements and Comparative Analyses"
+repository-code: "https://github.com/KamyarZeinalipour/protein-design-LLMs"
+license: MIT
+authors:
+  - family-names: "Zeinalipour"
+    given-names: "Kamyar"
+  - family-names: "Jamshidi"
+    given-names: "Neda"
+  - family-names: "Bianchini"
+    given-names: "Monica"
+  - family-names: "Maggini"
+    given-names: "Marco"
+  - family-names: "Gori"
+    given-names: "Marco"
+preferred-citation:
+  type: conference-paper
+  title: "Design Proteins Using Large Language Models: Enhancements and Comparative Analyses"
+  authors:
+    - family-names: "Zeinalipour"
+      given-names: "Kamyar"
+    - family-names: "Jamshidi"
+      given-names: "Neda"
+    - family-names: "Bianchini"
+      given-names: "Monica"
+    - family-names: "Maggini"
+      given-names: "Marco"
+    - family-names: "Gori"
+      given-names: "Marco"
+  collection-title: "Proceedings of the 1st Workshop on Language + Molecules (L+M 2024)"
+  conference:
+    name: "Language + Molecules 2024 at ACL 2024"
+    city: "Bangkok"
+    country: TH
+  month: 8
+  year: 2024
+  start: 34
+  end: 47
+  doi: "10.18653/v1/2024.langmol-1.5"
+  url: "https://aclanthology.org/2024.langmol-1.5/"
