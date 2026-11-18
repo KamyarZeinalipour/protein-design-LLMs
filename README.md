@@ -203,6 +203,7 @@ Accepted text saved generated_Proteins_{model_name}.csv
 
 ---
 
+
 <!-- hf-usage -->
 ## Load the models and data from Hugging Face
 
@@ -219,13 +220,13 @@ Each model is used with its own tokenizer, published as a separate repository:
 ```python
 from transformers import AutoModelForCausalLM, AutoTokenizer
 
-tokenizer = AutoTokenizer.from_pretrained("Kamyar-zeinalipour/protein-tokenizer-mistral")
+tokenizer = AutoTokenizer.from_pretrained("Kamyar-zeinalipour/Mistral-tokenizer-prot")
 model = AutoModelForCausalLM.from_pretrained("Kamyar-zeinalipour/P-Mistral-7B", torch_dtype="auto", device_map="auto")
 ```
 
 | Model | Tokenizer |
 |---|---|
-| [P-Mistral-7B](https://huggingface.co/Kamyar-zeinalipour/P-Mistral-7B) | [protein-tokenizer-mistral](https://huggingface.co/Kamyar-zeinalipour/protein-tokenizer-mistral) |
+| [P-Mistral-7B](https://huggingface.co/Kamyar-zeinalipour/P-Mistral-7B) | [Mistral-tokenizer-prot](https://huggingface.co/Kamyar-zeinalipour/Mistral-tokenizer-prot) |
 | [P-Llama2-7B](https://huggingface.co/Kamyar-zeinalipour/P-Llama2-7B) | [protein-tokenizer-llama2](https://huggingface.co/Kamyar-zeinalipour/protein-tokenizer-llama2) |
 | [P-Llama3-8B](https://huggingface.co/Kamyar-zeinalipour/P-Llama3-8B) | [protein-tokenizer-llama3](https://huggingface.co/Kamyar-zeinalipour/protein-tokenizer-llama3) |
 | [P-gemma-7B](https://huggingface.co/Kamyar-zeinalipour/P-gemma-7B) | [protein-tokenizer-gemma](https://huggingface.co/Kamyar-zeinalipour/protein-tokenizer-gemma) |
