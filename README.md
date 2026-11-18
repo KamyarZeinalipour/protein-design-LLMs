@@ -203,6 +203,37 @@ Accepted text saved generated_Proteins_{model_name}.csv
 
 ---
 
+<!-- hf-usage -->
+## Load the models and data from Hugging Face
+
+Everything released with the paper is in the Hugging Face collection [Design Proteins Using LLMs (LangMol 2024)](https://huggingface.co/collections/Kamyar-zeinalipour/design-proteins-using-llms-langmol-2024-6af48a0e6814a362675e4dc6).
+
+```python
+from datasets import load_dataset
+
+data = load_dataset("Kamyar-zeinalipour/UniRef50-HumanProteins")
+```
+
+Each model is used with its own tokenizer, published as a separate repository:
+
+```python
+from transformers import AutoModelForCausalLM, AutoTokenizer
+
+tokenizer = AutoTokenizer.from_pretrained("Kamyar-zeinalipour/protein-tokenizer-mistral")
+model = AutoModelForCausalLM.from_pretrained("Kamyar-zeinalipour/P-Mistral-7B", torch_dtype="auto", device_map="auto")
+```
+
+| Model | Tokenizer |
+|---|---|
+| [P-Mistral-7B](https://huggingface.co/Kamyar-zeinalipour/P-Mistral-7B) | [protein-tokenizer-mistral](https://huggingface.co/Kamyar-zeinalipour/protein-tokenizer-mistral) |
+| [P-Llama2-7B](https://huggingface.co/Kamyar-zeinalipour/P-Llama2-7B) | [protein-tokenizer-llama2](https://huggingface.co/Kamyar-zeinalipour/protein-tokenizer-llama2) |
+| [P-Llama3-8B](https://huggingface.co/Kamyar-zeinalipour/P-Llama3-8B) | [protein-tokenizer-llama3](https://huggingface.co/Kamyar-zeinalipour/protein-tokenizer-llama3) |
+| [P-gemma-7B](https://huggingface.co/Kamyar-zeinalipour/P-gemma-7B) | [protein-tokenizer-gemma](https://huggingface.co/Kamyar-zeinalipour/protein-tokenizer-gemma) |
+
+Tested with `transformers` 4.57.
+
+<!-- /hf-usage -->
+
 ## Reference
 
 ### Paper: Design Proteins Using Large Language Models: Enhancements and Comparative Analyses
